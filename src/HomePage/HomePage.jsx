@@ -1,8 +1,9 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
+/* eslint-disable no-unused-vars */
+import React from "react";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
-import { userActions } from '../_actions';
+import { userActions } from "../_actions";
 
 class HomePage extends React.Component {
     componentDidMount() {
@@ -26,11 +27,11 @@ class HomePage extends React.Component {
                     <ul>
                         {users.items.map((user, index) =>
                             <li key={user.id}>
-                                {user.firstName + ' ' + user.lastName}
+                                {user.firstName + " " + user.lastName}
                                 {
                                     user.deleting ? <em> - Deleting...</em>
-                                    : user.deleteError ? <span className="text-danger"> - ERROR: {user.deleteError}</span>
-                                    : <span> - <a onClick={this.handleDeleteUser(user.id)}>Delete</a></span>
+                                        : user.deleteError ? <span className="text-danger"> - ERROR: {user.deleteError}</span>
+                                            : <span> - <a onClick={this.handleDeleteUser(user.id)}>Delete</a></span>
                                 }
                             </li>
                         )}

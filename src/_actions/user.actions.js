@@ -1,7 +1,7 @@
-import { userConstants } from '../_constants';
-import { userService } from '../_services';
-import { alertActions } from './';
-import { history } from '../_helpers';
+import { userConstants } from "../_constants";
+import { userService } from "../_services";
+import { alertActions } from "./";
+import { history } from "../_helpers";
 
 export const userActions = {
     login,
@@ -19,7 +19,7 @@ function login(username, password) {
             .then(
                 user => { 
                     dispatch(success(user));
-                    history.push('/');
+                    history.push("/");
                 },
                 error => {
                     dispatch(failure(error));
@@ -28,9 +28,9 @@ function login(username, password) {
             );
     };
 
-    function request(user) { return { type: userConstants.LOGIN_REQUEST, user } }
-    function success(user) { return { type: userConstants.LOGIN_SUCCESS, user } }
-    function failure(error) { return { type: userConstants.LOGIN_FAILURE, error } }
+    function request(user) { return { type: userConstants.LOGIN_REQUEST, user }; }
+    function success(user) { return { type: userConstants.LOGIN_SUCCESS, user }; }
+    function failure(error) { return { type: userConstants.LOGIN_FAILURE, error }; }
 }
 
 function logout() {
@@ -46,8 +46,8 @@ function register(user) {
             .then(
                 user => { 
                     dispatch(success());
-                    history.push('/login');
-                    dispatch(alertActions.success('Registration successful'));
+                    history.push("/login");
+                    dispatch(alertActions.success("Registration successful"));
                 },
                 error => {
                     dispatch(failure(error));
@@ -56,9 +56,9 @@ function register(user) {
             );
     };
 
-    function request(user) { return { type: userConstants.REGISTER_REQUEST, user } }
-    function success(user) { return { type: userConstants.REGISTER_SUCCESS, user } }
-    function failure(error) { return { type: userConstants.REGISTER_FAILURE, error } }
+    function request(user) { return { type: userConstants.REGISTER_REQUEST, user }; }
+    function success(user) { return { type: userConstants.REGISTER_SUCCESS, user }; }
+    function failure(error) { return { type: userConstants.REGISTER_FAILURE, error }; }
 }
 
 function getAll() {
@@ -72,9 +72,9 @@ function getAll() {
             );
     };
 
-    function request() { return { type: userConstants.GETALL_REQUEST } }
-    function success(users) { return { type: userConstants.GETALL_SUCCESS, users } }
-    function failure(error) { return { type: userConstants.GETALL_FAILURE, error } }
+    function request() { return { type: userConstants.GETALL_REQUEST }; }
+    function success(users) { return { type: userConstants.GETALL_SUCCESS, users }; }
+    function failure(error) { return { type: userConstants.GETALL_FAILURE, error }; }
 }
 
 // prefixed function name with underscore because delete is a reserved word in javascript
@@ -93,7 +93,7 @@ function _delete(id) {
             );
     };
 
-    function request(id) { return { type: userConstants.DELETE_REQUEST, id } }
-    function success(id) { return { type: userConstants.DELETE_SUCCESS, id } }
-    function failure(id, error) { return { type: userConstants.DELETE_FAILURE, id, error } }
+    function request(id) { return { type: userConstants.DELETE_REQUEST, id }; }
+    function success(id) { return { type: userConstants.DELETE_SUCCESS, id }; }
+    function failure(id, error) { return { type: userConstants.DELETE_FAILURE, id, error }; }
 }
