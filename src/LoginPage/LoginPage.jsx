@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import {userActions} from "../_actions";
 
-class LoginPageCopy extends React.Component{
+class LoginPage extends React.Component{
     constructor(props) {
         super(props);
 
@@ -42,7 +42,7 @@ class LoginPageCopy extends React.Component{
         const { username, password, submitted } = this.state;
         return (
             <div className="col-md-6 col-md-offset-3">
-                <h2>Login (copy)</h2>
+                <h2>Login</h2>
                 <form name="form" onSubmit={this.handleSubmit}>
                     <div className={"form-group" + (submitted && !username ? " has-error" : "")}>
                         <label htmlFor="username">Username</label>
@@ -78,5 +78,5 @@ function mapStateToProps(state) {
     };
 }
 
-const connectedToLoginPageCopy = connect(mapStateToProps)(LoginPageCopy);
-export { connectedToLoginPageCopy as LoginPageCopy };
+const connectedToLoginPage = connect(mapStateToProps)(LoginPage);
+export { connectedToLoginPage as LoginPage };
